@@ -1,0 +1,13 @@
+PICO200
+
+Instructions:
+    I -> increment register value
+    D -> decrement register value
+    L -> add pointer to register
+    J -> jump to pointer in register
+    Z -> jump if zero lbl
+    E -> end if zero
+    K -> end
+
+I/O Instructions:
+    P -> print ascii value of register

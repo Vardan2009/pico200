@@ -1,0 +1,114 @@
+; PICO200 - THE ~200 BYTE PROGRAMMING LANGUAGE
+; WRITTEN BY VARDAN PETROSYAN JANUARY 2025
+ORG 7C00H
+
+MOV AH, 2
+MOV AL, 1
+MOV CH, 0
+MOV CL, 2
+MOV DH, 0
+MOV DL, 80H
+MOV BX, 1000H
+INT 13H
+MOV SI, 1000H
+JMP LOOP
+
+LOOP:
+    MOV AL, [SI]
+    TEST AL, AL
+    JZ END
+
+    INC SI
+
+    CMP AL, 'I'
+    JE INSTI
+    CMP AL, 'D'
+    JE INSTD
+    CMP AL, 'L'
+    JE INSTL
+    CMP AL, 'J'
+    JE INSTJ
+    CMP AL, 'Z'
+    JE INSTZ
+    CMP AL, 'E'
+    JE INSTE
+    CMP AL, 'K'
+    JE END
+    CMP AL, 'P'
+    JE INSTP
+    
+    CONTINUE:
+    JMP LOOP
+
+INSTI:
+    MOVZX DI, BYTE [SI]
+    SUB DI, 32
+    ADD DI, REGS
+    INC SI
+    INC BYTE [DI]
+    JMP CONTINUE
+INSTD:
+    MOVZX DI, BYTE [SI]
+    SUB DI, 32
+    ADD DI, REGS
+    INC SI
+    DEC BYTE [DI]
+    JMP CONTINUE
+INSTP:
+    MOVZX DI, BYTE [SI]
+    SUB DI, 32
+    ADD DI, REGS
+    INC SI
+    MOV AL, [DI]
+    MOV AH, 0EH
+    INT 10H
+    JMP CONTINUE
+INSTL:
+    MOVZX DI, BYTE [SI]
+    SUB DI, 32
+    ADD DI, REGS
+    INC SI
+    ADD [DI], SI
+    JMP CONTINUE
+INSTJ:
+    MOVZX DI, BYTE [SI]
+    SUB DI, 32
+    ADD DI, REGS
+    INC SI
+    MOV SI, [DI]
+    JMP CONTINUE
+INSTZ:
+    MOVZX DI, BYTE [SI]
+    SUB DI, 32
+    ADD DI, REGS
+    MOV DI, [DI]
+    INC SI
+    TEST DI, DI
+    JNZ .NO
+    MOVZX BP, BYTE [SI]
+    INC SI
+    SUB BP, 32
+    ADD BP, REGS
+    MOV SI, [BP]
+    JMP CONTINUE
+    .NO:
+    INC SI
+    JMP CONTINUE
+INSTE:
+    MOVZX DI, BYTE [SI]
+    SUB DI, 32
+    ADD DI, REGS
+    MOV DI, [DI]
+    INC SI
+    TEST DI, DI
+    JNZ .NO
+    JMP END
+    .NO:
+    JMP CONTINUE
+
+END: JMP $
+
+REGS: TIMES 32 DB 0
+
+TIMES 510-($-$$) DB 0
+DB 0X55, 0XAA
