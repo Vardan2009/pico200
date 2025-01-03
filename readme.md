@@ -1,4 +1,4 @@
-# PICO200
+# Pico200
 This is an esoteric programming language designed to be very small.<br>
 
 This repository contains a **204-byte interpreter** for the language written in the boot sector.<br>
@@ -46,6 +46,6 @@ K
 ```
 
 ## Run
-To compile and run PICO200, you need to have **NASM** (for assembly compilation) and **QEMU** (for running the image from a VM)<br>
+To compile and run Pico200, you need to have **NASM** (for compiling) and **QEMU** (for running the image from a VM)<br>
 This repo also contains a simple `compile.sh` file that compiles the assembly to binary, combines the binary and the source code `program.p200` to a single `disk.img` file and runs with QEMU.<br><br>
-*Tested with Ubuntu 24.04.1 LTS, NASM version 2.16.01, QEMU emulator version 8.2.2)*
+*Tested with Ubuntu 24.04.1 LTS, NASM version 2.16.01, QEMU emulator version 8.2.2*
