@@ -10,14 +10,14 @@ The program gives 32 registers, each having their ascii character ids from `32`-
 
 | Syntax        | Description                                             | Example |
 |---------------|---------------------------------------------------------|---------|
-| I<reg>        | Increments register                                     | I#      |
-| D<reg>        | Decrements register                                     | D#      |
-| L<reg>        | Adds the instruction pointer value to the register      | L!      |
-| J<reg>        | Jumps to the pointer stored in the register             | J!      |
-| Z<reg1><reg2> | Jumps to the pointer in the register2 if register1 is 0 | Z*%     |
-| E<reg>        | Ends execution if register is 0                         | E*      |
-| K             | Ends Execution                                          | K       |
-| P<reg>        | Prints the register value as an ASCII char              | P!      |
+| `I<reg>`        | Increments register                                     | I#      |
+| `D<reg>`        | Decrements register                                     | D#      |
+| `L<reg>`        | Adds the instruction pointer value to the register      | L!      |
+| `J<reg>`        | Jumps to the pointer stored in the register             | J!      |
+| `Z<reg1><reg2>` | Jumps to the pointer in the register2 if register1 is 0 | Z*%     |
+| `E<reg>`        | Ends execution if register is 0                         | E*      |
+| `K`             | Ends Execution                                          | K       |
+| `P<reg>`        | Prints the register value as an ASCII char              | P!      |
 
 ## Simple Example
 This simple Pico200 program prints the alphabet from `A`-`Z`
