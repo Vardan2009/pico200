@@ -6,7 +6,7 @@ This repository contains a **204-byte interpreter** for the language written in 
 The user-written source code is in a different sector (of the `disk.img`), which the program reads and executes
 
 ## Instructions
-The program gives 32 registers, each having their ascii character ids from `32`-`64` (`<space>`-`@`)
+The program gives registers, each having their ascii character ids starting from `32` (`<space>`)
 
 | Syntax        | Description                                             | Example |
 |---------------|---------------------------------------------------------|---------|
